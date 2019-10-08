@@ -4,11 +4,11 @@ from keras.layers import concatenate
 from keras.constraints import UnitNorm
 from keras import initializers
 from keras import backend as K
-
+import numpy as np
 import tensorflow as tf
 
 def causal2D(x,w):
-    print(shape(w))
+    print(np.shape(w))
     return x*w
 
 def _conv_layer(filters, kernel_size, strides=(1, 1), padding='same', name=None):
