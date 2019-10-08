@@ -7,9 +7,12 @@ from keras import backend as K
 
 import tensorflow as tf
 
+def causal2D(x,w):
+    print(shape(w))
+    return x*w
 
 def _conv_layer(filters, kernel_size, strides=(1, 1), padding='same', name=None):
-    return Conv2D(filters, kernel_size, strides=strides, padding=padding,
+    return Conv2D(filters, kernel_size, strides=strides, padding=padding,kernel_constraint=causal2D,
                   use_bias=True, kernel_initializer='he_normal', name=name)
 
 
