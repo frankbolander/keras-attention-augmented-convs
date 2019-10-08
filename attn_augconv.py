@@ -1,7 +1,7 @@
 from keras.layers import Layer
 from keras.layers import Conv2D
 from keras.layers import concatenate
-
+from keras.constraints import UnitNorm
 from keras import initializers
 from keras import backend as K
 
@@ -10,6 +10,7 @@ import tensorflow as tf
 
 def _conv_layer(filters, kernel_size, strides=(1, 1), padding='same', name=None):
     return Conv2D(filters, kernel_size, strides=strides, padding=padding,
+                  kernel_constraint=UnitNorm()
                   use_bias=True, kernel_initializer='he_normal', name=name)
 
 
