@@ -8,8 +8,17 @@ import numpy as np
 import tensorflow as tf
 
 
+def causal(w):
+    kh,kw,_,_ = np.shape(w)
+    if kh > 1:
+        o = K.oneslike(w)
+        o[kh//2+1:] = 0.0
+        return o*w
+    else
+        return w
+
 def _conv_layer(filters, kernel_size, strides=(1, 1), padding='same', name=None):
-    return Conv2D(filters, kernel_size, strides=strides, padding=padding,
+    return Conv2D(filters, kernel_size, strides=strides, padding=padding,kernel_constraint=causal,
                   use_bias=True, kernel_initializer='he_normal', name=name)
 
 
