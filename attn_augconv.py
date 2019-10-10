@@ -1,4 +1,4 @@
-    from keras.layers import Layer
+from keras.layers import Layer
 from keras.layers import Conv2D
 from keras.layers import concatenate
 from keras.constraints import UnitNorm
