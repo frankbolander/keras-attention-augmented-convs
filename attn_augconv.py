@@ -15,7 +15,7 @@ def causal(w):
         o[kh//2+1:] = 0.0
         o = K.convert_to_tensor(o,dtype=np.float32)
         return o*w
-    else:y
+    else:
         return w
 
 def _conv_layer(filters, kernel_size, strides=(1, 1), padding='same', name=None):
