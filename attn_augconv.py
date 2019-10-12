@@ -9,7 +9,7 @@ import tensorflow as tf
 
 
 def causal(w):
-    kh,kw,w,h = np.shape(w)
+    (kh,kw,w,h) = np.shape(w)
     if kh > 1:
         o = np.ones((kh,kw,w,h),dtype=np.float32)
         o[kh//2+1:] = 0.0
