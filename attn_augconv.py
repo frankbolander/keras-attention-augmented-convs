@@ -9,12 +9,13 @@ import tensorflow as tf
 
 
 def causal(w):
-    kh,kw,_,_ = np.shape(w)
+    kh,kw,w,h = np.shape(w)
     if kh > 1:
-        o = K.oneslike(w)
+        o = np.ones((kh,hw,w,h),dtype=np.float32)
         o[kh//2+1:] = 0.0
+        o = K.convert_to_tensor(o,dtype=np.float32)
         return o*w
-    else:
+    else:y
         return w
 
 def _conv_layer(filters, kernel_size, strides=(1, 1), padding='same', name=None):
